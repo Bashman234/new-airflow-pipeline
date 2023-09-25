@@ -44,3 +44,11 @@ This pipeline draws on transnational data set which contains all the transaction
 
 Dashboard can be viewed at this Link:
 http://localhost:3000/public/dashboard/ebaaa392-1885-4590-93e4-52447b924673
+
+## Reproducibility 
+
+**Pre-requisites:** 
+Make sure you have the following pre-installed components:
+*Docker
+*Astr CLI
+*GCP account
