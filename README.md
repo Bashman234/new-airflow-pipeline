@@ -65,3 +65,37 @@ Make sure you have the following pre-installed components:
 - Grant admin access to GCS + BigQuery
 - Click on the service account → Keys → Add Key → Copy the JSON content
 -  Create a new file `service_account.json` in `include/gcp/`
+- Airflow → Admin → Connections
+    - id: gcp
+    - type: Google Cloud
+    - Keypath Path: `/usr/local/airflow/include/gcp/service_account.json`
+- Test the connection → Save (**from 2.7 must be turned on**)
+- Create the DAG
+- Create an empty Dataset (schema equivalent)`from airflow.providers.google.cloud.operators.bigquery import BigQueryCreateEmptyDatasetOperator`
+- Create the task to load the file into a BigQuery raw_invoices table
+- Data loaded into the warehouse
+
+**Transformation**
+- install Cosmo - DBT in requirements.txt
+- in Dockerfile install dbt into a virtual environment
+- Restart astro cli with command astro dev restart
+- Create `include/dbt` folder and add `packages.yml`, `dbt_project.yml` and `profiles.yml`
+- In Bigquery copy and excute the following request to create countries table:
+https://docs.google.com/document/d/e/2PACX-1vSJGbKBIJsFX7v3uWtB8IryVgFlr99NzXai6uvHQhOQ9JHxCOrZ_71_4peVRGmRNUS2UH043D63nAKS/pub
+- create `models/sources`
+- create `models/transfrom`
+  -- dim_customer.sql
+
+-- Create the dimension table
+WITH customer_cte AS (
+	SELECT DISTINCT
+	    {{ dbt_utils.generate_surrogate_key(['CustomerID', 'Country']) }} as customer_id,
+	    Country AS country
+	FROM {{ source('retail', 'raw_invoices') }}
+	WHERE CustomerID IS NOT NULL
+)
+SELECT
+    t.*,
+	cm.iso
+FROM customer_cte t
+LEFT JOIN {{ source('retail', 'country') }} cm ON t.country = cm.nicename
