@@ -86,8 +86,8 @@ https://docs.google.com/document/d/e/2PACX-1vSJGbKBIJsFX7v3uWtB8IryVgFlr99NzXai6
 - create `models/transfrom`
   -- dim_customer.sql
 
-`-- Create the dimension table
-WITH customer_cte AS (
+`-- Create the dimension table`
+`WITH customer_cte AS (
 	SELECT DISTINCT
 	    {{ dbt_utils.generate_surrogate_key(['CustomerID', 'Country']) }} as customer_id,
 	    Country AS country
