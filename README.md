@@ -83,9 +83,33 @@ Make sure you have the following pre-installed components:
 - In Bigquery copy and excute the following request to create countries table:
 https://docs.google.com/document/d/e/2PACX-1vSJGbKBIJsFX7v3uWtB8IryVgFlr99NzXai6uvHQhOQ9JHxCOrZ_71_4peVRGmRNUS2UH043D63nAKS/pub
 - create `models/sources`
-- create `models/transfrom`
-  -- dim_customer.sql
-  -- dim_datetime.sql
-  -- dim_datetime.sql
+- create `models/transfrom` with the following transformation files
+    - dim_customer.sql
+    - dim_datetime.sql
+    - dim_product.sql
+    - fct_invoices.sql
+- Run the models in a virtual new python env you create inside the astro cli
+- use commands
+`astro dev bash
+python3 venv -m newenv
+source newenv/bin/activate
+cd include/dbt 
+dbt deps
+dbt run --profiles-dir /usr/local/airflow/include/dbt/`
+-Check on Bigquery that the tables exist with data
+**Reports**
+  - in `include/dbt/models/report` create the following files
+      - report_customer_invoices.sql
+      - report_product_invoices.sql
+      - report_year_invoices.sql
+test final dbt run
+`astro dev bash
+cd include/dbt
+python3 venv -m newenv
+source newenv/bin/activate
+cd include/dbt 
+dbt run --select path:models/report --profiles-dir /usr/local/airflow/include/dbt/`
+- use docker compose create a metabase dashboard
+- data pipeline is complete
 
 
