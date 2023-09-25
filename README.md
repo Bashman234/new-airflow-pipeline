@@ -86,7 +86,7 @@ https://docs.google.com/document/d/e/2PACX-1vSJGbKBIJsFX7v3uWtB8IryVgFlr99NzXai6
 - create `models/transfrom`
   -- dim_customer.sql
 
--- Create the dimension table
+`-- Create the dimension table
 WITH customer_cte AS (
 	SELECT DISTINCT
 	    {{ dbt_utils.generate_surrogate_key(['CustomerID', 'Country']) }} as customer_id,
@@ -98,4 +98,4 @@ SELECT
     t.*,
 	cm.iso
 FROM customer_cte t
-LEFT JOIN {{ source('retail', 'country') }} cm ON t.country = cm.nicename
+LEFT JOIN {{ source('retail', 'country') }} cm ON t.country = cm.nicename`
