@@ -1,7 +1,7 @@
 
 # Data Engineer Project: An end-to-end Airflow data pipeline with BigQuery, dbt
 
-The goal of this project was to develope a workflow to extracts, transforms, and loads data. This workflow will allow users to analyse transcational data from an online retail store through a dashboard.
+The goal of this project was to develope a workflow to extracts, transforms, and loads data. This workflow will allow users to analyse transcational data from an online retail store through a dashboard. Using Apache airflow for the workflow orchestration, along with docker to manage the various standardized unit containers.
 
 
 ## Dataset
