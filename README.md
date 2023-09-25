@@ -54,4 +54,14 @@ Make sure you have the following pre-installed components:
 
 - Astr CLI
 
-- GCP account*
+- GCP account
+
+**Project Setup**
+- Download the dataset https://www.kaggle.com/datasets/tunguz/online-retail
+- Store the csv file in `include/dataset/online_retail.csv`
+- In requirements.txt, add `apache-airflow-providers-google==10.3.0` restart Airflow.
+- Create a GCS bucket with a unique name `<your_name>_online_retail`
+- Create a service account with a name `airflow-online-retail`
+- Grant admin access to GCS + BigQuery
+- Click on the service account → Keys → Add Key → Copy the JSON content
+-  Create a new file `service_account.json` in `include/gcp/`
