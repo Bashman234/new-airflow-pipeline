@@ -30,7 +30,7 @@ This pipeline draws on transnational data set which contains all the transaction
 
 ## Project Architecture
 
-![App Screenshot](https://github.com/Bashman234/new-airflow-pipeline/blob/main/screenshots/Screenshot%202023-09-23%20at%2020.04.24.png)
+![App Screenshot](https://github.com/Bashman234/new-airflow-pipeline/blob/main/screenshots/Screenshot%202023-09-25%20at%2012.18.36.png)
 
 
 ## Data Modeling
