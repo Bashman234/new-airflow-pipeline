@@ -7,6 +7,12 @@ The goal of this project was to develope a workflow to extracts, transforms, and
 ## Dataset
 
 This pipeline draws on transnational data set which contains all the transactions occurring between 01/12/2010 and 09/12/2011 for a UK-based and registered non-store online retail. The company mainly sells unique all-occasion gifts. Many customers of the company are wholesalers. the pipeline ingests the raw data into a google cloud bucket.
+
+![App Screenshot](https://github.com/Bashman234/new-airflow-pipeline/blob/main/screenshots/Screenshot%202023-09-24%20at%2009.34.38.png)
+
+
+
+
 ## Tech Stack
 
 **Cloud:** Google Cloud
@@ -27,6 +33,10 @@ This pipeline draws on transnational data set which contains all the transaction
 ![App Screenshot](https://github.com/Bashman234/new-airflow-pipeline/blob/main/screenshots/Screenshot%202023-09-23%20at%2020.04.24.png)
 
 
+## Data Modeling
+
+
+![App Screenshot](https://github.com/Bashman234/new-airflow-pipeline/blob/main/screenshots/Screenshot%202023-09-23%20at%2019.49.06.png)
 ## dashboard
 
 
